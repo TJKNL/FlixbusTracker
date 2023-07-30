@@ -45,7 +45,7 @@ def get_location(ip_address):
         return f'{city}, {region}, {country}'
     except Exception as e:
         print(f'Could not get location for IP {ip_address}')
-        return None
+        return "Unknown location"
 
 
 @app.route('/')
