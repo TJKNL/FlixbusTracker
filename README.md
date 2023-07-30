@@ -9,4 +9,4 @@ This is a simple Python web application that tracks the status of two buses usin
 - Automatically updates the statuses every minute in the background
 
 ## Screenshot
-![Dilly & Silly Bus Tracker Screenshot](https://github.com/yourusername/yourrepository/blob/main/screenshot.png)
+![Dilly & Silly Bus Tracker Screenshot](https://github.com/TJKNL/FlixbusTracker/blob/main/Screenshot.png?raw=true)
