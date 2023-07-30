@@ -10,4 +10,4 @@ This is a simple Python web application that tracks the status of two buses usin
 - An incrediblly fun animated bus wizzing across your screen
 
 ## Screenshot
-![Dilly & Silly Bus Tracker Screenshot](https://github.com/TJKNL/FlixbusTracker/blob/main/Screenshot.png?raw=true)
+![Dilly & Silly Bus Tracker Screenshot](https://github.com/TJKNL/FlixbusTracker/blob/main/recording.gif?raw=true)
