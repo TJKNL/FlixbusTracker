@@ -7,8 +7,9 @@ import threading
 
 app = Flask(__name__)
 
-status_bus1 = ""
-status_bus2 = ""
+status_bus1 = "Loading..."
+status_bus2 = "Loading..."
+
 
 def fetch_bus_status(url):
     options = Options()
@@ -21,8 +22,10 @@ def fetch_bus_status(url):
     driver.quit()
     return status
 
+
 def update_status():
     global status_bus1, status_bus2
+    global url_bus1, url_bus2
     url_bus1 = 'https://global.flixbus.com/track/ride/d6b01d05-5b15-4d45-8c35-1404fc7c83d9?fromStopUuid=dcbd0b4b-9603-11e6-9066-549f350fcb0c&toStopUuid=dcbabf60-9603-11e6-9066-549f350fcb0c'  # replace with actual URL
     url_bus2 = 'https://global.flixbus.com/track/ride/3a0b21d8-acc4-4f3e-a04e-35d419a02e4f?fromStopUuid=dcbb7621-9603-11e6-9066-549f350fcb0c&toStopUuid=dcbdd1b1-9603-11e6-9066-549f350fcb0c'  # replace with actual URL
     while True:
@@ -30,11 +33,14 @@ def update_status():
         status_bus2 = fetch_bus_status(url_bus2)
         time.sleep(60)  # update status every minute
 
+
 @app.route('/')
 def home():
-    return render_template('index.html', status_bus1=status_bus1, status_bus2=status_bus2)
+    return render_template('index.html', status_bus1=status_bus1, status_bus2=status_bus2, url_bus1=url_bus1,
+                           url_bus2=url_bus2)
+
 
 if __name__ == '__main__':
     status_thread = threading.Thread(target=update_status)
     status_thread.start()
-    app.run(host='192.168.1.10', port=5000, debug=True)  # specify IP and port here
+    app.run(host='192.168.1.10', port=5080, debug=False)  # specify IP and port here
