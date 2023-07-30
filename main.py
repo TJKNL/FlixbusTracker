@@ -1,9 +1,10 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.common.by import By
 import time
 import threading
+import requests
 
 app = Flask(__name__)
 
@@ -34,8 +35,30 @@ def update_status():
         time.sleep(60)  # update status every minute
 
 
+def get_location(ip_address):
+    try:
+        response = requests.get(f'http://ip-api.com/json/{ip_address}')
+        js = response.json()
+        country = js['country']
+        region = js['regionName']
+        city = js['city']
+        return f'{city}, {region}, {country}'
+    except Exception as e:
+        print(f'Could not get location for IP {ip_address}')
+        return None
+
+
 @app.route('/')
 def home():
+    # Get the IP address of the client
+    ip_address = request.remote_addr
+
+    # Get the location of the IP address
+    location = get_location(ip_address)
+
+    # Print the location to the console
+    print(f'Accessed from {location}')
+
     return render_template('index.html', status_bus1=status_bus1, status_bus2=status_bus2, url_bus1=url_bus1,
                            url_bus2=url_bus2)
 
