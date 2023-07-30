@@ -1,6 +1,6 @@
 # FlixBus Tracker
 
-This is a simple Python web application that tracks the status of two buses using the FlixBus tracking page.
+This is a simple Python web application that tracks the status of two buses using the FlixBus tracking page. Simply change the URL's to track your own bus.
 
 ## Features
 
