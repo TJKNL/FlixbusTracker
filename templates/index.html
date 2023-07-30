@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dilly & Silly Tracker</title>
+    <style>
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background-image: url("https://i.giphy.com/media/jbbXfBJDKl5W8lexTu/giphy.webp");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            z-index: -1;
+        }
+        h1 {
+            color: pink;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 6em;
+            text-shadow: 2px 2px 4px #000000;
+        }
+        .bus {
+            font-size: 5rem;
+            animation: drive 4s linear infinite;
+        }
+        @keyframes drive {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        .status-text {
+            font-family: 'Lucida Console', Monaco, monospace;  /* New font here */
+            font-size: 2.5em;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px #000000;
+        }
+        .content {
+            text-align: center;
+            padding: 1em;
+        }
+    </style>
+</head>
+<body>
+    <div class="background"></div>
+    <div class="content">
+        <h1>Dilly & Silly Tracker</h1>
+        <div class="bus">🚌💨</div>
+        <p class="status-text">Copenhagne -> Osnabrück: {{status_bus1}}</p>
+        <p class="status-text">Osnabrück -> Amsterdam: {{status_bus2}}</p>
+    </div>
+</body>
+</html>
